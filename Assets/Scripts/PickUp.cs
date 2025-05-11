@@ -8,6 +8,8 @@ public class PickUp : MonoBehaviour
     public GameObject SnacksOnPlayer;
     public GameObject WaterOnPlayer;
 
+    public GameObject currentItemObject = null;
+
     public bool hasItem = false;
 
     void Start()
@@ -28,10 +30,12 @@ public class PickUp : MonoBehaviour
             {
                 if ( Input.GetKey(KeyCode.E) )
                 {
+                    currentItemObject = other.gameObject;
+
                     other.gameObject.SetActive(false);
                     CoffeeOnPlayer.SetActive(true);
                     hasItem = true;
-                }      
+                }
             }
 
             ///burger
@@ -39,6 +43,8 @@ public class PickUp : MonoBehaviour
             {
                 if ( Input.GetKey(KeyCode.E) )
                 {
+                    currentItemObject = other.gameObject;
+
                     other.gameObject.SetActive(false);
                     FoodOnPlayer.SetActive(true);
                     hasItem = true;
@@ -50,6 +56,8 @@ public class PickUp : MonoBehaviour
             {
                 if ( Input.GetKey(KeyCode.E) )
                 {
+                    currentItemObject = other.gameObject;
+
                     other.gameObject.SetActive(false);
                     DrinksOnPlayer.SetActive(true);
                     hasItem = true;
@@ -61,6 +69,8 @@ public class PickUp : MonoBehaviour
             {
                 if ( Input.GetKey(KeyCode.E) )
                 {
+                    currentItemObject = other.gameObject;
+
                     other.gameObject.SetActive(false);
                     SnacksOnPlayer.SetActive(true);
                     hasItem = true;
@@ -72,11 +82,33 @@ public class PickUp : MonoBehaviour
             {
                 if ( Input.GetKey(KeyCode.E) )
                 {
+                    currentItemObject = other.gameObject;
+                    
                     other.gameObject.SetActive(false);
                     WaterOnPlayer.SetActive(true);
                     hasItem = true;
                 }
             }
         }
+                    
+        ///drop item///
+        if( other.gameObject.tag == "TrashCan" && Input.GetKey(KeyCode.E) )
+        {
+            DropItem();
+        }
+    }
+
+    public void DropItem()
+    {
+        Debug.Log("you discard an item");
+        ObjectPool.GetInstance().Return(currentItemObject);
+
+        CoffeeOnPlayer.SetActive(false);
+        FoodOnPlayer.SetActive(false);
+        DrinksOnPlayer.SetActive(false);
+        SnacksOnPlayer.SetActive(false);
+        WaterOnPlayer.SetActive(false);
+
+        hasItem = false;
     }
 }

@@ -8,8 +8,11 @@ public class PlayerController : MonoBehaviour
     private Rigidbody rb;
     public float speed;
     public float turnSpeed;
-
-    ///PickUp System///
+    public bool isAtCoffeePotZone = false;
+    public bool isAtFridgeZone = false;
+    public bool isAtSnacksBarZone = false;
+    public bool isAtVendingMachineZone = false;
+    public bool isAtWaterDispenserZone = false;
 
     ///Scoring///
     public int score = 0;
@@ -18,6 +21,12 @@ public class PlayerController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         moveAction = InputSystem.actions.FindAction("Move");
+
+        isAtCoffeePotZone = false;
+        isAtFridgeZone = false;
+        isAtSnacksBarZone = false;
+        isAtVendingMachineZone = false;
+        isAtWaterDispenserZone = false;
     }
 
     void Update()
@@ -40,6 +49,54 @@ public class PlayerController : MonoBehaviour
         else if ( Input.GetKeyUp(KeyCode.LeftShift) )
         {
             speed = 3;
+        }
+    }
+
+    public void OnTriggerEnter( Collider interactables )
+    {
+        if ( interactables.CompareTag("CoffeePot") )
+        {
+            isAtCoffeePotZone = true;
+        }
+        if ( interactables.CompareTag("Fridge") )
+        {
+            isAtFridgeZone = true;
+        }
+        if ( interactables.CompareTag("SnacksBar") )
+        {
+            isAtSnacksBarZone = true;
+        }
+        if ( interactables.CompareTag("VendingMachine") )
+        {
+            isAtVendingMachineZone = true;
+        }
+        if ( interactables.CompareTag("WaterDispenser") )
+        {
+            isAtWaterDispenserZone = true;
+        }
+    }
+
+    public void OnTriggerExit( Collider interactables )
+    {
+        if ( interactables.CompareTag("CoffeePot") )
+        {
+            isAtCoffeePotZone = false;
+        }
+        if ( interactables.CompareTag("Fridge") )
+        {
+            isAtFridgeZone = false;
+        }
+        if ( interactables.CompareTag("SnacksBar") )
+        {
+            isAtSnacksBarZone = false;
+        }
+        if ( interactables.CompareTag("VendingMachine") )
+        {
+            isAtVendingMachineZone = false;
+        }
+        if ( interactables.CompareTag("WaterDispenser") )
+        {
+            isAtWaterDispenserZone = false;
         }
     }
 }

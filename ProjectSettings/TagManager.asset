@@ -9,6 +9,12 @@ TagManager:
   - DRINKS
   - COFFEE
   - WATER
+  - TrashCan
+  - CoffeePot
+  - Fridge
+  - SnacksBar
+  - VendingMachine
+  - WaterDispenser
   layers:
   - Default
   - TransparentFX
