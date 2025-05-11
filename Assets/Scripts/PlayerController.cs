@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using System.Collections;
 
 public class PlayerController : MonoBehaviour
 {
@@ -16,6 +17,9 @@ public class PlayerController : MonoBehaviour
 
     ///Scoring///
     public int score = 0;
+
+    ///Special///
+    public bool isTimeBoosted = false;
 
     void Start()
     {
@@ -52,49 +56,56 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    public void OnTriggerEnter( Collider interactables )
+    public void OnTriggerEnter( Collider obj )
     {
-        if ( interactables.CompareTag("CoffeePot") )
+        if ( obj.CompareTag("CoffeePot") )
         {
             isAtCoffeePotZone = true;
         }
-        if ( interactables.CompareTag("Fridge") )
+        if ( obj.CompareTag("Fridge") )
         {
             isAtFridgeZone = true;
         }
-        if ( interactables.CompareTag("SnacksBar") )
+        if ( obj.CompareTag("SnacksBar") )
         {
             isAtSnacksBarZone = true;
         }
-        if ( interactables.CompareTag("VendingMachine") )
+        if ( obj.CompareTag("VendingMachine") )
         {
             isAtVendingMachineZone = true;
         }
-        if ( interactables.CompareTag("WaterDispenser") )
+        if ( obj.CompareTag("WaterDispenser") )
         {
             isAtWaterDispenserZone = true;
         }
+
+        ///time boost///
+        if ( obj.CompareTag("TimeBooster") )
+        {
+            isTimeBoosted = true;
+            Destroy(obj.gameObject);
+        }
     }
 
-    public void OnTriggerExit( Collider interactables )
+    public void OnTriggerExit( Collider obj )
     {
-        if ( interactables.CompareTag("CoffeePot") )
+        if ( obj.CompareTag("CoffeePot") )
         {
             isAtCoffeePotZone = false;
         }
-        if ( interactables.CompareTag("Fridge") )
+        if ( obj.CompareTag("Fridge") )
         {
             isAtFridgeZone = false;
         }
-        if ( interactables.CompareTag("SnacksBar") )
+        if ( obj.CompareTag("SnacksBar") )
         {
             isAtSnacksBarZone = false;
         }
-        if ( interactables.CompareTag("VendingMachine") )
+        if ( obj.CompareTag("VendingMachine") )
         {
             isAtVendingMachineZone = false;
         }
-        if ( interactables.CompareTag("WaterDispenser") )
+        if ( obj.CompareTag("WaterDispenser") )
         {
             isAtWaterDispenserZone = false;
         }

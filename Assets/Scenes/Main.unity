@@ -128,6 +128,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 21113991}
+  - component: {fileID: 21113992}
   m_Layer: 0
   m_Name: Employee
   m_TagString: Untagged
@@ -158,6 +159,28 @@ Transform:
   - {fileID: 1366963896}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &21113992
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 21113990}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d48063c5df9c1104faa27ce1f759cc07, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  customers:
+  - {fileID: 1996246019}
+  - {fileID: 1296236798}
+  - {fileID: 1361391329}
+  - {fileID: 1305585764}
+  - {fileID: 1083337220}
+  - {fileID: 1037904771}
+  - {fileID: 26406458}
+  - {fileID: 688979025}
+  maxActive: 2
 --- !u!1001 &21518013
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -296,6 +319,27 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.7830117, y: 1.1181874, z: 0.55288386}
   m_Center: {x: 0.009787586, y: 0.5054389, z: -0.08142127}
+--- !u!114 &26406462
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 26406458}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 408885cb30ef4c942b0b03354b8ed961, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  orderTextUI: {fileID: 0}
+  orderPatienceTime: 15
+  multiItemMode: 0
+  onOrderExpire:
+    m_PersistentCalls:
+      m_Calls: []
+  onOrderComplete:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1001 &55425449
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -488,6 +532,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timerText: {fileID: 1614442419}
   remainingTime: 10
+  timerBoostText: {fileID: 1224311648}
+  playerController: {fileID: 1940142900}
 --- !u!4 &83592155 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: aa1df8bdfe3b61943a5cbb2344613612, type: 3}
@@ -1175,8 +1221,8 @@ Transform:
   m_GameObject: {fileID: 334291615}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -5.56, y: 1.2651361, z: -1.23}
-  m_LocalScale: {x: 0.11753911, y: 6.9312, z: 6.8398614}
+  m_LocalPosition: {x: -5.56, y: 1.2651361, z: -0.44}
+  m_LocalScale: {x: 0.11753911, y: 6.9312, z: 5.5683312}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 528246471}
@@ -1317,7 +1363,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6490136728237138907, guid: d5b4b9e82e6e45e4283c6435e743b647, type: 3}
       propertyPath: m_Name
-      value: Mobile_animal_people_wolf_1
+      value: Wolf_Employee(7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6490136728237138907, guid: d5b4b9e82e6e45e4283c6435e743b647, type: 3}
+      propertyPath: m_TagString
+      value: Employee
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 0}
@@ -1327,6 +1377,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6490136728237138907, guid: d5b4b9e82e6e45e4283c6435e743b647, type: 3}
       insertIndex: -1
       addedObject: {fileID: 26406461}
+    - targetCorrespondingSourceObject: {fileID: 6490136728237138907, guid: d5b4b9e82e6e45e4283c6435e743b647, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 26406462}
   m_SourcePrefab: {fileID: 100100000, guid: d5b4b9e82e6e45e4283c6435e743b647, type: 3}
 --- !u!1001 &361781759
 PrefabInstance:
@@ -2979,7 +3032,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6490136728237138907, guid: d5b4b9e82e6e45e4283c6435e743b647, type: 3}
       propertyPath: m_Name
-      value: Mobile_animal_people_wolf_1 (2)
+      value: Wolf_Employee(5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6490136728237138907, guid: d5b4b9e82e6e45e4283c6435e743b647, type: 3}
+      propertyPath: m_TagString
+      value: Employee
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 0}
@@ -2989,6 +3046,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6490136728237138907, guid: d5b4b9e82e6e45e4283c6435e743b647, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1083337222}
+    - targetCorrespondingSourceObject: {fileID: 6490136728237138907, guid: d5b4b9e82e6e45e4283c6435e743b647, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1083337223}
   m_SourcePrefab: {fileID: 100100000, guid: d5b4b9e82e6e45e4283c6435e743b647, type: 3}
 --- !u!4 &872938599 stripped
 Transform:
@@ -3767,6 +3827,27 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.7830117, y: 1.1181874, z: 0.55288386}
   m_Center: {x: 0.009787586, y: 0.5054389, z: -0.08142127}
+--- !u!114 &1083337223
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1083337220}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 408885cb30ef4c942b0b03354b8ed961, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  orderTextUI: {fileID: 0}
+  orderPatienceTime: 15
+  multiItemMode: 0
+  onOrderExpire:
+    m_PersistentCalls:
+      m_Calls: []
+  onOrderComplete:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1093588890
 GameObject:
   m_ObjectHideFlags: 0
@@ -4470,8 +4551,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 23
-  m_fontSizeBase: 23
+  m_fontSize: 21.38
+  m_fontSizeBase: 21.38
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -4608,6 +4689,7 @@ GameObject:
   - component: {fileID: 1279504783}
   - component: {fileID: 1279504782}
   - component: {fileID: 1279504781}
+  - component: {fileID: 1279504785}
   m_Layer: 0
   m_Name: TimeBoostItem
   m_TagString: Untagged
@@ -4706,6 +4788,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1279504785
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1279504780}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7459907f3b876b244abbc655f25b9732, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TimeBoostItemPrefab: {fileID: 7834255452938615619, guid: 632cbc0a06e69d8428314c0e1878fce8, type: 3}
 --- !u!1 &1290053568
 GameObject:
   m_ObjectHideFlags: 0
@@ -5002,7 +5097,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6490136728237138907, guid: d5b4b9e82e6e45e4283c6435e743b647, type: 3}
       propertyPath: m_Name
-      value: Mobile_animal_people_wolf_1 (1)
+      value: Wolf_Employee(8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6490136728237138907, guid: d5b4b9e82e6e45e4283c6435e743b647, type: 3}
+      propertyPath: m_TagString
+      value: Employee
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 0}
@@ -5012,6 +5111,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6490136728237138907, guid: d5b4b9e82e6e45e4283c6435e743b647, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1366963898}
+    - targetCorrespondingSourceObject: {fileID: 6490136728237138907, guid: d5b4b9e82e6e45e4283c6435e743b647, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1366963899}
   m_SourcePrefab: {fileID: 100100000, guid: d5b4b9e82e6e45e4283c6435e743b647, type: 3}
 --- !u!4 &1366963896 stripped
 Transform:
@@ -5039,6 +5141,27 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.7830117, y: 1.1181874, z: 0.55288386}
   m_Center: {x: 0.009787586, y: 0.5054389, z: -0.08142127}
+--- !u!114 &1366963899
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 688979025}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 408885cb30ef4c942b0b03354b8ed961, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  orderTextUI: {fileID: 0}
+  orderPatienceTime: 15
+  multiItemMode: 0
+  onOrderExpire:
+    m_PersistentCalls:
+      m_Calls: []
+  onOrderComplete:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!4 &1412153408 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3303868890505602502, guid: 0cd509d2c3c197c44ba05b5996d38165, type: 3}
@@ -5106,7 +5229,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6490136728237138907, guid: d5b4b9e82e6e45e4283c6435e743b647, type: 3}
       propertyPath: m_Name
-      value: Mobile_animal_people_wolf_1 (3)
+      value: Wolf_Employee(6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6490136728237138907, guid: d5b4b9e82e6e45e4283c6435e743b647, type: 3}
+      propertyPath: m_TagString
+      value: Employee
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 0}
@@ -5116,6 +5243,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6490136728237138907, guid: d5b4b9e82e6e45e4283c6435e743b647, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1437315298}
+    - targetCorrespondingSourceObject: {fileID: 6490136728237138907, guid: d5b4b9e82e6e45e4283c6435e743b647, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1437315299}
   m_SourcePrefab: {fileID: 100100000, guid: d5b4b9e82e6e45e4283c6435e743b647, type: 3}
 --- !u!4 &1437315296 stripped
 Transform:
@@ -5143,6 +5273,27 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.7830117, y: 1.1181874, z: 0.55288386}
   m_Center: {x: 0.009787586, y: 0.5054389, z: -0.08142127}
+--- !u!114 &1437315299
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1037904771}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 408885cb30ef4c942b0b03354b8ed961, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  orderTextUI: {fileID: 0}
+  orderPatienceTime: 15
+  multiItemMode: 0
+  onOrderExpire:
+    m_PersistentCalls:
+      m_Calls: []
+  onOrderComplete:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1441066670
 GameObject:
   m_ObjectHideFlags: 0
@@ -6188,6 +6339,10 @@ PrefabInstance:
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 646651457446580642, guid: 8c2d3588d63061d41b5142b95e5bc969, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 646651457446580642, guid: 8c2d3588d63061d41b5142b95e5bc969, type: 3}
       propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
@@ -6408,8 +6563,8 @@ Transform:
   m_GameObject: {fileID: 1689760320}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -5.56, y: 1.2651361, z: -12.1}
-  m_LocalScale: {x: 0.11753911, y: 6.9312, z: 6.8398614}
+  m_LocalPosition: {x: -5.56, y: 1.2651361, z: -13.06}
+  m_LocalScale: {x: 0.11753911, y: 6.9312, z: 4.6922536}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 528246471}
@@ -7474,6 +7629,7 @@ MonoBehaviour:
   isAtVendingMachineZone: 0
   isAtWaterDispenserZone: 0
   score: 0
+  isTimeBoosted: 0
 --- !u!65 &1940142901
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7546,6 +7702,7 @@ MonoBehaviour:
   WaterOnPlayer: {fileID: 373451703}
   currentItemObject: {fileID: 0}
   hasItem: 0
+  isContactWithEmployee: 0
 --- !u!1001 &1955747053
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7961,7 +8118,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6490136728237138907, guid: d5b4b9e82e6e45e4283c6435e743b647, type: 3}
       propertyPath: m_Name
-      value: Mobile_animal_people_wolf_1 (7)
+      value: Wolf_Employee(2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6490136728237138907, guid: d5b4b9e82e6e45e4283c6435e743b647, type: 3}
+      propertyPath: m_TagString
+      value: Employee
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 0}
@@ -7971,6 +8132,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6490136728237138907, guid: d5b4b9e82e6e45e4283c6435e743b647, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1992135768}
+    - targetCorrespondingSourceObject: {fileID: 6490136728237138907, guid: d5b4b9e82e6e45e4283c6435e743b647, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1992135769}
   m_SourcePrefab: {fileID: 100100000, guid: d5b4b9e82e6e45e4283c6435e743b647, type: 3}
 --- !u!4 &1992135766 stripped
 Transform:
@@ -7998,6 +8162,27 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.7830117, y: 1.1181874, z: 0.55288386}
   m_Center: {x: 0.009787586, y: 0.5054389, z: -0.08142127}
+--- !u!114 &1992135769
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1296236798}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 408885cb30ef4c942b0b03354b8ed961, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  orderTextUI: {fileID: 0}
+  orderPatienceTime: 15
+  multiItemMode: 0
+  onOrderExpire:
+    m_PersistentCalls:
+      m_Calls: []
+  onOrderComplete:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1996246019 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6490136728237138907, guid: d5b4b9e82e6e45e4283c6435e743b647, type: 3}
@@ -8288,7 +8473,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6490136728237138907, guid: d5b4b9e82e6e45e4283c6435e743b647, type: 3}
       propertyPath: m_Name
-      value: Mobile_animal_people_wolf_1 (6)
+      value: Wolf_Employee(1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6490136728237138907, guid: d5b4b9e82e6e45e4283c6435e743b647, type: 3}
+      propertyPath: m_TagString
+      value: Employee
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 0}
@@ -8298,6 +8487,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6490136728237138907, guid: d5b4b9e82e6e45e4283c6435e743b647, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2110960171}
+    - targetCorrespondingSourceObject: {fileID: 6490136728237138907, guid: d5b4b9e82e6e45e4283c6435e743b647, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2110960172}
   m_SourcePrefab: {fileID: 100100000, guid: d5b4b9e82e6e45e4283c6435e743b647, type: 3}
 --- !u!4 &2110960169 stripped
 Transform:
@@ -8325,6 +8517,27 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.7830117, y: 1.1181874, z: 0.55288386}
   m_Center: {x: 0.009787586, y: 0.5054389, z: -0.08142127}
+--- !u!114 &2110960172
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1996246019}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 408885cb30ef4c942b0b03354b8ed961, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  orderTextUI: {fileID: 0}
+  orderPatienceTime: 15
+  multiItemMode: 0
+  onOrderExpire:
+    m_PersistentCalls:
+      m_Calls: []
+  onOrderComplete:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1001 &2119676130
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8387,7 +8600,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6490136728237138907, guid: d5b4b9e82e6e45e4283c6435e743b647, type: 3}
       propertyPath: m_Name
-      value: Mobile_animal_people_wolf_1 (5)
+      value: Wolf_Employee(4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6490136728237138907, guid: d5b4b9e82e6e45e4283c6435e743b647, type: 3}
+      propertyPath: m_TagString
+      value: Employee
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 0}
@@ -8397,6 +8614,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6490136728237138907, guid: d5b4b9e82e6e45e4283c6435e743b647, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2119676133}
+    - targetCorrespondingSourceObject: {fileID: 6490136728237138907, guid: d5b4b9e82e6e45e4283c6435e743b647, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2119676134}
   m_SourcePrefab: {fileID: 100100000, guid: d5b4b9e82e6e45e4283c6435e743b647, type: 3}
 --- !u!4 &2119676131 stripped
 Transform:
@@ -8424,6 +8644,27 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.7830117, y: 1.1181874, z: 0.55288386}
   m_Center: {x: 0.009787586, y: 0.5054389, z: -0.08142127}
+--- !u!114 &2119676134
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1305585764}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 408885cb30ef4c942b0b03354b8ed961, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  orderTextUI: {fileID: 0}
+  orderPatienceTime: 15
+  multiItemMode: 0
+  onOrderExpire:
+    m_PersistentCalls:
+      m_Calls: []
+  onOrderComplete:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1001 &2123955729
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8486,7 +8727,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6490136728237138907, guid: d5b4b9e82e6e45e4283c6435e743b647, type: 3}
       propertyPath: m_Name
-      value: Mobile_animal_people_wolf_1 (4)
+      value: Wolf_Employee(3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6490136728237138907, guid: d5b4b9e82e6e45e4283c6435e743b647, type: 3}
+      propertyPath: m_TagString
+      value: Employee
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 0}
@@ -8496,6 +8741,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6490136728237138907, guid: d5b4b9e82e6e45e4283c6435e743b647, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2123955732}
+    - targetCorrespondingSourceObject: {fileID: 6490136728237138907, guid: d5b4b9e82e6e45e4283c6435e743b647, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2123955733}
   m_SourcePrefab: {fileID: 100100000, guid: d5b4b9e82e6e45e4283c6435e743b647, type: 3}
 --- !u!4 &2123955730 stripped
 Transform:
@@ -8523,6 +8771,27 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.7830117, y: 1.1181874, z: 0.55288386}
   m_Center: {x: 0.009787586, y: 0.5054389, z: -0.08142127}
+--- !u!114 &2123955733
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1361391329}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 408885cb30ef4c942b0b03354b8ed961, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  orderTextUI: {fileID: 0}
+  orderPatienceTime: 15
+  multiItemMode: 0
+  onOrderExpire:
+    m_PersistentCalls:
+      m_Calls: []
+  onOrderComplete:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &2132345822 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5515082723300321548, guid: a1a70e23b49ba904ea2254f3e6cc8a50, type: 3}

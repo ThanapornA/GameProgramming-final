@@ -11,6 +11,7 @@ public class PickUp : MonoBehaviour
     public GameObject currentItemObject = null;
 
     public bool hasItem = false;
+    public bool isContactWithEmployee = false;
 
     void Start()
     {
@@ -19,6 +20,15 @@ public class PickUp : MonoBehaviour
         DrinksOnPlayer.SetActive(false);
         SnacksOnPlayer.SetActive(false);
         WaterOnPlayer.SetActive(false);
+    }
+
+    void Update()
+    {
+        if ( hasItem == true && isContactWithEmployee == true && Input.GetKey(KeyCode.E) )
+        {
+            Debug.Log("you gave item");
+            DropItem();
+        }
     }
 
     public void OnTriggerStay(Collider other)
@@ -100,7 +110,7 @@ public class PickUp : MonoBehaviour
 
     public void DropItem()
     {
-        Debug.Log("you discard an item");
+        Debug.Log("you now have no item");
         ObjectPool.GetInstance().Return(currentItemObject);
 
         CoffeeOnPlayer.SetActive(false);
@@ -110,5 +120,24 @@ public class PickUp : MonoBehaviour
         WaterOnPlayer.SetActive(false);
 
         hasItem = false;
+    }
+
+    ///deliver item///
+    public void OnTriggerEnter ( Collider customer )
+    {
+        if ( customer.gameObject.CompareTag("Employee") )
+        {
+            isContactWithEmployee = true;
+            Debug.Log("press E to give item");
+        }
+    }
+
+    public void OnTriggerExit ( Collider customer )
+    {
+        if ( customer.gameObject.CompareTag("Employee") )
+        {
+            isContactWithEmployee = false;
+            Debug.Log("you give item");
+        }
     }
 }
