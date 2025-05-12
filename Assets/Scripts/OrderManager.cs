@@ -14,7 +14,7 @@ public class OrderManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI orderTextUI;
 
     [Header("Order Settings")]
-    [SerializeField] private float orderPatienceTime = 15f; //15 วิ ไปก่อนไม่แน่ใจว่าเอาเท่าไหร่ดี
+    [SerializeField] private float orderPatienceTime = 15f; 
     [SerializeField] private bool multiItemMode = false; // เปิด true ถ้าจะสุ่มหลายอย่าง
 
     [Header("Events")] //EVENT ของ Check ว่าส่งเป็นไง
@@ -31,7 +31,7 @@ public class OrderManager : MonoBehaviour
 
     void Start()
     {
-        GenerateNewOrder();
+        
     }
 
     
@@ -44,6 +44,7 @@ public class OrderManager : MonoBehaviour
 
             if (currentPatience <= 0)
             {
+                orderActive = false;
                 Debug.Log("[OrderManager] Order expired!");
                 onOrderExpire?.Invoke();
                 GenerateNewOrder();
@@ -51,7 +52,7 @@ public class OrderManager : MonoBehaviour
         }
     }
 
-    void GenerateNewOrder()
+    public void GenerateNewOrder()
     {
         currentOrder.Clear();
         if (multiItemMode)
