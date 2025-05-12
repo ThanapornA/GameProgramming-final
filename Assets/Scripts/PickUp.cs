@@ -11,7 +11,10 @@ public class PickUp : MonoBehaviour
     public GameObject currentItemObject = null;
 
     public bool hasItem = false;
+
+    ///deliver item
     public bool isContactWithEmployee = false;
+    public bool gaveItem = false;
 
     void Start()
     {
@@ -26,8 +29,8 @@ public class PickUp : MonoBehaviour
     {
         if ( hasItem == true && isContactWithEmployee == true && Input.GetKey(KeyCode.E) )
         {
-            Debug.Log("you gave item");
             DropItem();
+            gaveItem = true;
         }
     }
 
@@ -137,7 +140,6 @@ public class PickUp : MonoBehaviour
         if ( customer.gameObject.CompareTag("Employee") )
         {
             isContactWithEmployee = false;
-            Debug.Log("you give item");
         }
     }
 }
