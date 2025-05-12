@@ -14113,6 +14113,7 @@ GameObject:
   - component: {fileID: 1977548232}
   - component: {fileID: 1977548231}
   - component: {fileID: 1977548233}
+  - component: {fileID: 1977548234}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -14267,6 +14268,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1977548234
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1977548230}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7459907f3b876b244abbc655f25b9732, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TimeBoostItemPrefab: {fileID: 7834255452938615619, guid: 632cbc0a06e69d8428314c0e1878fce8, type: 3}
 --- !u!1001 &1980451696
 PrefabInstance:
   m_ObjectHideFlags: 0
