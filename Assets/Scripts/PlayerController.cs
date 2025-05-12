@@ -15,9 +15,6 @@ public class PlayerController : MonoBehaviour
     public bool isAtVendingMachineZone = false;
     public bool isAtWaterDispenserZone = false;
 
-    ///Scoring///
-    public int score = 0;
-
     ///Special///
     public bool isTimeBoosted = false;
 
@@ -37,8 +34,9 @@ public class PlayerController : MonoBehaviour
     {
         float horiAction = moveAction.ReadValue<Vector2>().x;
         float vertiAction = moveAction.ReadValue<Vector2>().y;
-        transform.Translate( vertiAction * speed * Time.deltaTime * Vector3.forward);
-        transform.Translate( horiAction * speed * Time.deltaTime * Vector3.right);
+        
+        Vector3 moveDirection = new Vector3(horiAction, 0, vertiAction).normalized;
+        transform.Translate(moveDirection * speed * Time.deltaTime);
 
         if ( horiAction != 0 )
         {

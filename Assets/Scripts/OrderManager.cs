@@ -18,6 +18,8 @@ public class OrderManager : MonoBehaviour
     [Header("Events")] //EVENT ของ Check ว่าส่งเป็นไง
     public UnityEvent onOrderExpire;
     public UnityEvent onOrderComplete;
+    public UnityEvent onWrongItemDelivered;
+    public UnityEvent onCorrectItemDelivered;
 
     private float currentPatience;
     private bool orderActive;
@@ -33,6 +35,7 @@ public class OrderManager : MonoBehaviour
     public string tagEntered;
     private bool isItemGiven = false;
     private bool isContactWithPlayer = false;
+    public bool isCorrectOrder = false;
 
     void Start()
     {
@@ -69,15 +72,17 @@ public class OrderManager : MonoBehaviour
 
                 List<ItemType> deliveredItemsEnumList = new List<ItemType> { deliveredItemEnum.Value };
 
-                bool isCorrectOrder = CheckOrder(deliveredItemsEnumList);
+                isCorrectOrder = CheckOrder(deliveredItemsEnumList);
                 if (isCorrectOrder)
                 {
                     Debug.Log("✅ Correct item delivered!");
+                    onCorrectItemDelivered.Invoke();
                     CompleteOrder();
                 }
                 else
                 {
                     Debug.Log("❌ Incorrect item");
+                    onWrongItemDelivered.Invoke();
                 }
 
                 isItemGiven = false;
