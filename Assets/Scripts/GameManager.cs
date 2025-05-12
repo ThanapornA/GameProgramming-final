@@ -26,6 +26,8 @@ public class GameManager : MonoBehaviour
 
     ///other///
     public bool isLosingTime = false;
+    [ SerializeField ] GameObject Employee;
+    private bool hasPlayedGameEndSound = false;
 
     void Start()
     {
@@ -47,7 +49,14 @@ public class GameManager : MonoBehaviour
 
         if ( isGameEnd == true )
         {
-            GameManagerAudioSource.PlayOneShot(gameEndSFX);
+            Employee.SetActive(false);
+
+            if (!hasPlayedGameEndSound)
+            {
+                GameManagerAudioSource.PlayOneShot(gameEndSFX);
+                hasPlayedGameEndSound = true; // prevent replaying
+            }
+
             GameResultTxt.text = currentTotalScore.ToString();
             GameEndCondition(currentTotalScore);
         }

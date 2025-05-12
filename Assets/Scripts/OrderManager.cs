@@ -1,5 +1,5 @@
 using UnityEngine;
-
+using UnityEngine.UI;
 using UnityEngine.Events;
 using TMPro;
 using System.Collections.Generic;
@@ -37,12 +37,18 @@ public class OrderManager : MonoBehaviour
     private bool isContactWithPlayer = false;
     public bool isCorrectOrder = false;
 
+    ///ui for each request
+    [SerializeField] RawImage[] itemsRequestedIMG;
+    public Slider timerSlider;
+
     void Start()
     {
-        
+        foreach (RawImage img in itemsRequestedIMG)
+        {
+            img.gameObject.SetActive(false);
+        }
     }
 
-    
     void Update()
     {
         if (orderActive)
@@ -55,6 +61,17 @@ public class OrderManager : MonoBehaviour
                 orderActive = false;
                 Debug.Log($"{Name} [OrderManager] Order expired!");
                 onOrderExpire?.Invoke();
+
+                foreach (RawImage img in itemsRequestedIMG)
+                {
+                    img.gameObject.SetActive(false);
+                }
+
+                if (timerSlider != null)
+                {
+                    timerSlider.value = 0f;
+                }
+
             }
         }
 
@@ -94,6 +111,11 @@ public class OrderManager : MonoBehaviour
 
     public void GenerateNewOrder()
     {
+        foreach (RawImage img in itemsRequestedIMG)
+        {
+            img.gameObject.SetActive(false);
+        }
+
         currentOrder.Clear();
         if (multiItemMode)
         {
@@ -121,7 +143,25 @@ public class OrderManager : MonoBehaviour
 
         currentPatience = orderPatienceTime;
         orderActive = true;
-        UpdateOrderUI(); 
+
+        foreach (RawImage img in itemsRequestedIMG)
+        {
+            ItemType imageType;
+            bool parsed = System.Enum.TryParse(img.gameObject.name, out imageType);
+            if (parsed && currentOrder.Contains(imageType))
+            {
+                img.gameObject.SetActive(true);
+            }
+        }
+        UpdateOrderUI();
+
+        //slider ui
+        if (timerSlider != null)
+        {
+            timerSlider.maxValue = orderPatienceTime;
+            timerSlider.value = orderPatienceTime;
+        } 
+
     }
 
     /// <summary>
@@ -134,6 +174,11 @@ public class OrderManager : MonoBehaviour
         {
             string timeStr = string.Format("{0:00}:{1:00}", Mathf.FloorToInt(currentPatience / 60), Mathf.FloorToInt(currentPatience % 60));
             orderTextUI.text = $"Order: {string.Join(", ", currentOrder)}\nTime Left: {timeStr}";
+        }   
+
+        if (timerSlider != null)
+        {
+            timerSlider.value = currentPatience;
         }
     }
     
