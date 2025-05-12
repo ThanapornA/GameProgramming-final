@@ -22,7 +22,7 @@ public class OrderManager : MonoBehaviour
     private float currentPatience;
     private bool orderActive;
     
-    public enum ItemType { COFFEE, FOOD, DRINKS, SNACKS, WATER }
+    public enum ItemType { COFFEE, FOOD, SODA, SNACKS, WATER }
     
     private readonly List<ItemType> currentOrder = new();
     private readonly ItemType[] allItems = (ItemType[])System.Enum.GetValues(typeof(ItemType));
@@ -52,7 +52,6 @@ public class OrderManager : MonoBehaviour
                 orderActive = false;
                 Debug.Log("[OrderManager] Order expired!");
                 onOrderExpire?.Invoke();
-                GenerateNewOrder();
             }
         }
 
