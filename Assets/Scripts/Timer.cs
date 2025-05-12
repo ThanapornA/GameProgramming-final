@@ -6,7 +6,7 @@ public class Timer : MonoBehaviour
 {
     [ SerializeField ] TextMeshProUGUI timerText;
     [ SerializeField ] private float remainingTime;
-    [ SerializeField ] TextMeshProUGUI timerBoostText;
+    [ SerializeField ] TextMeshProUGUI timerEventText;
 
     public PlayerController playerController;
 
@@ -31,14 +31,14 @@ public class Timer : MonoBehaviour
             remainingTime += 5;
             playerController.isTimeBoosted = false;
             StartCoroutine(ShowTimerMessage());
-            timerBoostText.gameObject.SetActive(true);
+            timerEventText.gameObject.SetActive(true);
         }
     }
 
     private IEnumerator ShowTimerMessage()
     {
-        timerBoostText.text = "+5 seconds";
+        timerEventText.text = "+5 seconds";
         yield return new WaitForSeconds(3f);
-        timerBoostText.text = "";
+        timerEventText.text = "";
     }
 }
