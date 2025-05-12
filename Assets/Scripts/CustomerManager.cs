@@ -52,7 +52,6 @@ public class CustomerManager : MonoBehaviour
             int capturedIndex = index; // ป้องกัน closure bug
             om.onOrderComplete.AddListener(() => OnDone(capturedIndex));
             om.onOrderExpire.AddListener(() => OnDone(capturedIndex));
-            om.GenerateNewOrder();
         }
     }
 

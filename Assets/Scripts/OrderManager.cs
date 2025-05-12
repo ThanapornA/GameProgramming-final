@@ -24,7 +24,7 @@ public class OrderManager : MonoBehaviour
     private float currentPatience;
     private bool orderActive;
     
-    public enum ItemType { COFFEE, FOOD, SODA, SNACKS, WATER }
+    public enum ItemType { COFFEE, FOOD, DRINKS, SNACKS, WATER }
     
     private readonly List<ItemType> currentOrder = new();
     private readonly ItemType[] allItems = (ItemType[])System.Enum.GetValues(typeof(ItemType));
@@ -53,7 +53,7 @@ public class OrderManager : MonoBehaviour
             if (currentPatience <= 0)
             {
                 orderActive = false;
-                Debug.Log("[OrderManager] Order expired!");
+                Debug.Log($"{Name} [OrderManager] Order expired!");
                 onOrderExpire?.Invoke();
             }
         }
@@ -209,6 +209,15 @@ public class OrderManager : MonoBehaviour
     {   
         currentOrder.Clear();
         orderActive = false;
+        //orderTextUI.text = ""; // หรือขึ้นว่า “รอคำสั่งถัดไป...”
+
+        if (orderTextUI != null)
+    {
         orderTextUI.text = ""; // หรือขึ้นว่า “รอคำสั่งถัดไป...”
+    }
+    else
+    {
+        //Debug.LogWarning("[OrderManager] orderTextUI is null during ClearOrder.");
+    }
     }
 }
